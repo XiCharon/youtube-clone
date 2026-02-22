@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Youtube</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <link href="output.css" rel="stylesheet" />
+    <script src="js/main.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+  </head>
+  <body class="bg-youtube-dark text-white">
+    <header>
+      <nav class="bg-youtube-dark fixed top-0 right-0 left-0 z-40 flex items-center justify-between px-3 py-3">
+        <div class="flex gap-2">
+          <button id="sidebarToggle" class="hover:bg-youtube-light-gray active:bg-youtube-ultra-light-gray flex w-10 cursor-pointer items-center justify-center rounded-full transition-colors">
+            <img src="img/hamburger.svg" alt="Hamburger menu" class="w-5 select-none" />
+          </button>
+          <a href=""><img src="img/yt-logo.png" alt="Youtube logo" class="w-30 select-none" /></a>
+          <span class="-translate-x-4 text-xs opacity-50">HR</span>
+        </div>
+        <div class="flex flex-1 items-center justify-center gap-8 px-8">
+          <div class="group relative flex w-full max-w-xl">
+            <input
+              type="text"
+              name="searchBar"
+              id="searchBar"
+              placeholder="Search"
+              class="peer bg-youtube-dark border-youtube-light-gray right-0 h-10 w-full rounded-l-full border px-5 pr-4 peer-focus:visible focus:border-blue-500 focus:pl-12 focus:outline-0"
+            />
+            <button id="clearSearch" class="hover:bg-youtube-light-gray absolute top-1.5 right-16 hidden cursor-pointer rounded-full">
+              <img src="img/close.png" alt="Delete search" class="w-7" />
+            </button>
+            <img src="img/search.svg" alt="Search" draggable="false" class="border-youtube-light-gray absolute hidden w-14 cursor-text px-4 py-2 select-none peer-focus:block" />
+            <button class="bg-youtube-gray border-youtube-light-gray w-15 cursor-pointer rounded-r-full border border-l-0 px-4 py-1">
+              <img src="img/search.svg" alt="Search" draggable="false" class="select-none" />
+            </button>
+          </div>
+          <div class="relative">
+            <button class="peer bg-youtube-gray hover:bg-youtube-light-gray active:bg-youtube-ultra-light-gray w-6.5 scale-150 cursor-pointer rounded-full p-1">
+              <img src="img/microphone.png" alt="Microphone" draggable="false" />
+            </button>
+            <span class="absolute top-full left-1/2 z-50 mt-4 -translate-x-1/2 scale-80 transform rounded bg-gray-500 px-5 py-2 whitespace-nowrap opacity-0 transition-opacity peer-hover:opacity-80"
+              >Search with your voice</span
+            >
+          </div>
+        </div>
+        <div class="relative flex items-center gap-4">
+          <div class="bg-youtube-gray hover:bg-youtube-light-gray active:bg-youtube-ultra-light-gray flex cursor-pointer items-center gap-2 rounded-full px-4 py-2 select-none">
+            <img src="img/plus.png" alt="Create" class="w-6 select-none" />
+            <span>Create</span>
+          </div>
+          <button class="peer hover:bg-youtube-light-gray active:bg-youtube-ultra-light-gray w-10 cursor-pointer rounded-full p-2">
+            <img src="img/notification.png" alt="Notifications" draggable="false" />
+          </button>
+          <span class="absolute top-full left-1/2 z-50 mt-4 -translate-x-8 scale-80 transform rounded bg-gray-500 px-5 py-2 whitespace-nowrap opacity-0 transition-opacity peer-hover:opacity-80"
+            >Notifications</span
+          >
+          <button class="peer mr-2 w-9 cursor-pointer rounded-full border border-hidden active:border-solid active:border-blue-500">
+            <img src="img/my_profile.jpg" alt="Profile" draggable="false" class="rounded-full" />
+          </button>
+        </div>
+      </nav>
+    </header>
+    <aside id="sidebar" class="fixed top-16 left-0 h-[calc(100vh-4rem)] w-63 overflow-y-auto">
+      <div class="sidebar-main-item mt-4 ml-4">
+        <div class="bg-youtube-gray hover:bg-youtube-light-gray active:bg-youtube-ultra-light-gray sidebar-main-item flex max-w-53 cursor-pointer items-center gap-6 rounded-xl px-4 py-2">
+          <img src="img/home.svg" alt="Home" draggable="false" class="w-6 select-none" />
+          <span class="sidebar-label">Home</span>
+        </div>
+        <div class="hover:bg-youtube-gray active:bg-youtube-light-gray sidebar-main-item mb-3 flex max-w-53 cursor-pointer items-center gap-6 rounded-xl px-4 py-2">
+          <img src="img/shorts.png" alt="Shorts" draggable="false" class="w-6 select-none" />
+          <span class="sidebar-label">Shorts</span>
+        </div>
+      </div>
+
+      <hr class="wide-only w-full opacity-25" />
+
+      <div class="sidebar-main-item">
+        <div class="hover:bg-youtube-gray active:bg-youtube-light-gray sidebar-link sidebar-main-item">
+          <img src="img/subscriptions.png" alt="Subscriptions" draggable="false" class="profile-picture narrow-only" />
+          <span class="sidebar-label">Subscriptions</span>
+          <img src="img/arrow-right.png" alt="Open subscriptions" class="wide-only" />
+        </div>
+        <div class="sidebar-item hover:bg-youtube-gray active:bg-youtube-light-gray wide-only">
+          <img src="img/channels_profile1.jpg" alt="Channel Profile 1" draggable="false" class="profile-picture" />
+          <span class="sidebar-text">Chewy</span>
+        </div>
+        <div class="sidebar-item hover:bg-youtube-gray active:bg-youtube-light-gray wide-only">
+          <img src="img/channels_profile2.jpg" alt="Channel Profile 2" draggable="false" class="profile-picture" />
+          <span class="sidebar-text">Hyphonix</span>
+        </div>
+        <div class="sidebar-item hover:bg-youtube-gray active:bg-youtube-light-gray wide-only">
+          <img src="img/channels_profile3.jpg" alt="Channel Profile 3" draggable="false" class="profile-picture" />
+          <span class="sidebar-text">Mashed</span>
+        </div>
+        <div class="sidebar-item hover:bg-youtube-gray active:bg-youtube-light-gray wide-only">
+          <img src="img/channels_profile4.jpg" alt="Channel Profile 4" draggable="false" class="profile-picture" />
+          <span class="sidebar-text">Skeppy</span>
+        </div>
+        <div class="sidebar-item hover:bg-youtube-gray active:bg-youtube-light-gray wide-only">
+          <img src="img/channels_profile5.jpg" alt="Channel Profile 5" draggable="false" class="profile-picture" />
+          <span class="sidebar-text">The Land of Bo...</span>
+        </div>
+        <div class="sidebar-item hover:bg-youtube-gray active:bg-youtube-light-gray wide-only">
+          <img src="img/channels_profile6.jpg" alt="Channel Profile 6" draggable="false" class="profile-picture" />
+          <span class="sidebar-text">1 Minute Talk S...</span>
+        </div>
+        <div class="sidebar-item hover:bg-youtube-gray active:bg-youtube-light-gray wide-only">
+          <img src="img/channels_profile7.jpg" alt="Channel Profile 7" draggable="false" class="profile-picture" />
+          <span class="sidebar-text">3RD IMPACT</span>
+        </div>
+        <div class="sidebar-item hover:bg-youtube-gray active:bg-youtube-light-gray wide-only">
+          <img src="img/arrow-down.png" alt="Show more" draggable="false" class="w-5 select-none" />
+          <span class="sidebar-text">Show more</span>
+        </div>
+      </div>
+
+      <hr class="wide-only my-3 w-full opacity-25" />
+
+      <div class="sidebar-main-item">
+        <div class="hover:bg-youtube-gray active:bg-youtube-light-gray sidebar-link sidebar-main-item">
+          <img src="img/you.png" alt="You" draggable="false" class="profile-picture narrow-only" />
+          <span class="sidebar-label">You</span>
+          <img src="img/arrow-right.png" alt="Open your profile" class="wide-only w-6 select-none" />
+        </div>
+        <div class="sidebar-item hover:bg-youtube-gray active:bg-youtube-light-gray wide-only">
+          <img src="img/history.png" alt="History" draggable="false" class="profile-picture" />
+          <span class="sidebar-text">History</span>
+        </div>
+        <div class="sidebar-item hover:bg-youtube-gray active:bg-youtube-light-gray wide-only">
+          <img src="img/playlists.png" alt="Playlists" draggable="false" class="profile-picture" />
+          <span class="sidebar-text">Playlists</span>
+        </div>
+        <div class="sidebar-item hover:bg-youtube-gray active:bg-youtube-light-gray wide-only">
+          <img src="img/watch-later.png" alt="Watch later" draggable="false" class="profile-picture" />
+          <span class="sidebar-text">Watch later</span>
+        </div>
+        <div class="sidebar-item hover:bg-youtube-gray active:bg-youtube-light-gray wide-only">
+          <img src="img/liked-videos.png" alt="Liked videos" draggable="false" class="profile-picture" />
+          <span class="sidebar-text">Liked videos</span>
+        </div>
+        <div class="sidebar-item hover:bg-youtube-gray active:bg-youtube-light-gray wide-only">
+          <img src="img/your-videos.png" alt="Your videos" draggable="false" class="profile-picture" />
+          <span class="sidebar-text">Your videos</span>
+        </div>
+        <div class="sidebar-item hover:bg-youtube-gray active:bg-youtube-light-gray wide-only">
+          <img src="img/downloads.png" alt="Downloads" draggable="false" class="profile-picture" />
+          <span class="sidebar-text">Downloads</span>
+        </div>
+        <div class="sidebar-item hover:bg-youtube-gray active:bg-youtube-light-gray wide-only">
+          <img src="img/arrow-down.png" alt="Show more" draggable="false" class="w-5 select-none" />
+          <span class="sidebar-text">Show more</span>
+        </div>
+      </div>
+
+      <hr class="wide-only my-3 mb-6 w-full opacity-25" />
+
+      <div class="wide-only">
+        <span class="ml-6 font-semibold">Explore</span>
+        <div class="sidebar-item hover:bg-youtube-gray active:bg-youtube-light-gray mt-1">
+          <img src="img/music.png" alt="Music" draggable="false" class="profile-picture" />
+          <span class="sidebar-text">Music</span>
+        </div>
+        <div class="sidebar-item hover:bg-youtube-gray active:bg-youtube-light-gray">
+          <img src="img/gaming.png" alt="Gaming" draggable="false" class="profile-picture" />
+          <span class="sidebar-text">Gaming</span>
+        </div>
+        <div class="sidebar-item hover:bg-youtube-gray active:bg-youtube-light-gray">
+          <img src="img/sports.png" alt="Sports" draggable="false" class="profile-picture" />
+          <span class="sidebar-text">Sports</span>
+        </div>
+      </div>
+
+      <hr class="wide-only my-3 mb-6 w-full opacity-25" />
+
+      <div class="wide-only">
+        <span class="ml-6 font-semibold">Explore</span>
+        <div class="sidebar-item hover:bg-youtube-gray active:bg-youtube-light-gray mt-1">
+          <img src="img/yt-icon.png" alt="Music" draggable="false" class="profile-picture" />
+          <span class="sidebar-text">Youtube Premium</span>
+        </div>
+        <div class="sidebar-item hover:bg-youtube-gray active:bg-youtube-light-gray">
+          <img src="img/yt-studio.png" alt="Youtube Studio" draggable="false" class="profile-picture" />
+          <span class="sidebar-text">Youtube Studio</span>
+        </div>
+        <div class="sidebar-item hover:bg-youtube-gray active:bg-youtube-light-gray">
+          <img src="img/yt-music.png" alt="Youtube Music" draggable="false" class="profile-picture" />
+          <span class="sidebar-text">Youtube Music</span>
+        </div>
+        <div class="sidebar-item hover:bg-youtube-gray active:bg-youtube-light-gray">
+          <img src="img/yt-kids.png" alt="Youtube Kids" draggable="false" class="profile-picture" />
+          <span class="sidebar-text">Youtube Kids</span>
+        </div>
+      </div>
+
+      <hr class="wide-only my-3 mb-6 w-full opacity-25" />
+
+      <div class="wide-only">
+        <span class="ml-6 font-semibold">More from YouTube</span>
+        <div class="sidebar-item hover:bg-youtube-gray active:bg-youtube-light-gray mt-1">
+          <img src="img/settings.png" alt="Settings" draggable="false" class="profile-picture" />
+          <span class="sidebar-text">Settings</span>
+        </div>
+        <div class="sidebar-item hover:bg-youtube-gray active:bg-youtube-light-gray">
+          <img src="img/report.png" alt="Report History" draggable="false" class="profile-picture" />
+          <span class="sidebar-text">Report History</span>
+        </div>
+        <div class="sidebar-item hover:bg-youtube-gray active:bg-youtube-light-gray">
+          <img src="img/help.png" alt="Help" draggable="false" class="profile-picture" />
+          <span class="sidebar-text">Help</span>
+        </div>
+        <div class="sidebar-item hover:bg-youtube-gray active:bg-youtube-light-gray">
+          <img src="img/feedback.png" alt="Send feedback" draggable="false" class="profile-picture" />
+          <span class="sidebar-text">Send feedback</span>
+        </div>
+      </div>
+
+      <hr class="wide-only my-3 mb-6 w-full opacity-25" />
+    </aside>
+    <button id="scrollLeftBtn" class="hover:bg-youtube-gray active:bg-youtube-light-gray category-btn bg-youtube-dark fixed top-18 left-63 z-11 scale-x-[-1] transform cursor-pointer rounded-full p-2">
+      <img src="img/arrow-right.png" alt="Scroll categories" />
+    </button>
+    <div id="categoryBar" class="bg-youtube-dark category-wrapper no-scrollbar category-bar fixed top-16 right-0 z-10 flex items-center gap-3 overflow-x-auto px-3 py-3 pl-8">
+      <p class="bg-youtube-light text-youtube-dark cursor-pointer rounded-md px-3 py-1 font-semibold">All</p>
+      <p class="navbar-suggestion bg-youtube-gray">Gaming</p>
+      <p class="navbar-suggestion bg-youtube-gray">Music</p>
+      <p class="navbar-suggestion bg-youtube-gray">Honkai: Star Rail</p>
+      <p class="navbar-suggestion bg-youtube-gray">Comic Books</p>
+      <p class="navbar-suggestion bg-youtube-gray">Audio commentaries</p>
+      <p class="navbar-suggestion bg-youtube-gray">Mixes</p>
+      <p class="navbar-suggestion bg-youtube-gray">Live</p>
+      <p class="navbar-suggestion bg-youtube-gray">Superhero movies</p>
+      <p class="navbar-suggestion bg-youtube-gray">Bosses</p>
+      <p class="navbar-suggestion bg-youtube-gray">Puzzle games</p>
+      <p class="navbar-suggestion bg-youtube-gray">AMVs</p>
+      <p class="navbar-suggestion bg-youtube-gray">Sketch comedy</p>
+      <p class="navbar-suggestion bg-youtube-gray">Role-Playing Games</p>
+      <p class="navbar-suggestion bg-youtube-gray">Dragon Ball Z</p>
+      <p class="navbar-suggestion bg-youtube-gray">Dragon Ball Legends</p>
+      <p class="navbar-suggestion bg-youtube-gray">JavaScript</p>
+      <p class="navbar-suggestion bg-youtube-gray">Computer programming</p>
+    </div>
+    <button id="scrollRightBtn" class="bg-youtube-dark hover:bg-youtube-gray category-btn active:bg-youtube-light-gray fixed top-18 right-2 z-11 cursor-pointer rounded-full p-2">
+      <img src="img/arrow-right.png" alt="Scroll categories" />
+    </button>
+    <main class="mt-30 ml-66 flex-1"></main>
+  </body>
+</html>

@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .bg-youtube-dark {
+    background-color: #131313;
+  }
+  .text-youtube-dark {
+    color: #131313;
+  }
+
+  .bg-youtube-light {
+    background-color: #ffffff;
+  }
+
+  .bg-youtube-gray {
+    background-color: #272727;
+  }
+  .hover\:bg-youtube-gray:hover {
+    background-color: #272727;
+  }
+  .active\:bg-youtube-gray:active {
+    background-color: #272727;
+  }
+
+  .bg-youtube-light-gray {
+    background-color: #4e4e4e;
+  }
+  .hover\:bg-youtube-light-gray:hover {
+    background-color: #4e4e4e;
+  }
+  .active\:bg-youtube-light-gray:active {
+    background-color: #4e4e4e;
+  }
+  .border-youtube-light-gray {
+    border-color: #4e4e4e;
+  }
+
+  .bg-youtube-ultra-light-gray {
+    background-color: #666666;
+  }
+  .hover\:bg-youtube-ultra-light-gray:hover {
+    background-color: #666666;
+  }
+  .active\:bg-youtube-ultra-light-gray:active {
+    background-color: #666666;
+  }
+
+  .bg-youtube-red {
+    background-color: #ff0033;
+  }
+}
+
+@layer components {
+  .sidebar-item {
+    @apply ml-4 flex max-w-53 cursor-pointer items-center gap-6 rounded-xl px-4 py-2;
+  }
+  .profile-picture {
+    @apply w-7 rounded-full select-none;
+  }
+  .sidebar-link {
+    @apply mt-3 ml-4 flex max-w-53 cursor-pointer items-center gap-6 rounded-xl px-4 py-2 font-semibold;
+  }
+  .navbar-suggestion {
+    @apply cursor-pointer rounded-md px-3 py-1 whitespace-nowrap;
+  }
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+/* For Webkit browsers (Chrome, Edge, Safari) */
+aside::-webkit-scrollbar {
+  width: 8px;
+}
+
+aside::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+aside::-webkit-scrollbar-thumb {
+  background-color: #7a7a7a;
+  border-radius: 9999px;
+}
+
+aside::-webkit-scrollbar-thumb:hover {
+  background-color: #7a7a7a;
+}
+
+aside {
+  scrollbar-width: thin;
+  scrollbar-color: #7a7a7a transparent;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE & Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.sidebar-compact {
+  width: 82px;
+  margin-top: 1rem;
+}
+
+.sidebar-compact .sidebar-main-item {
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  margin-left: 3px;
+  width: 64px;
+}
+
+.sidebar-compact .sidebar-label {
+  font-size: 10px;
+}
+
+.sidebar-compact .wide-only {
+  display: none;
+}
+
+.narrow-only {
+  display: none;
+}
+
+.sidebar-compact .narrow-only {
+  display: block;
+}
+
+.sidebar-compact .sidebar-text {
+  display: none;
+}
+
+.category-bar {
+  left: 260px;
+}
+
+body.sidebar-compact .category-bar {
+  left: 82px;
+}
+body.sidebar-compact .category-bar-button {
+  left: 72px;
+}
