@@ -1,10 +1,6 @@
 const toggle = document.getElementById("sidebarToggle");
 const sidebar = document.getElementById("sidebar");
 
-toggle.addEventListener("click", () => {
-  sidebar.classList.toggle("sidebar-compact");
-});
-
 const categoryBar = document.getElementById("categoryBar");
 const scrollLeftBtn = document.getElementById("scrollLeftBtn");
 const scrollRightBtn = document.getElementById("scrollRightBtn");

@@ -101,7 +101,7 @@ aside {
   scrollbar-width: none; /* Firefox */
 }
 
-.sidebar-compact {
+aside.sidebar-compact {
   width: 82px;
   margin-top: 1rem;
 }
@@ -138,9 +138,21 @@ aside {
   left: 260px;
 }
 
+.category-bar-button {
+  left: 252px;
+}
+
 body.sidebar-compact .category-bar {
   left: 82px;
 }
 body.sidebar-compact .category-bar-button {
   left: 72px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body.sidebar-compact main {
+  margin-left: 82px;
 }
